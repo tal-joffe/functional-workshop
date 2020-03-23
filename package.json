@@ -1,0 +1,25 @@
+{
+  "name": "functional-workshop",
+  "version": "1.0.0",
+  "description": "repository for workship session about functional programming in Javascript",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tal-joffe/functional-workshop.git"
+  },
+  "author": "talJoffe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tal-joffe/functional-workshop/issues"
+  },
+  "homepage": "https://github.com/tal-joffe/functional-workshop#readme",
+  "dependencies": {
+    "immer": "^5.3.6"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
