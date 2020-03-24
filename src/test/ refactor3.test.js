@@ -2,12 +2,12 @@ const {normalizeItemName} = require('../refactor3')
 
 describe('name normalizer test', async () => {
   test('should normalize item name', async () => {
-    const name = 'Me  Ssy'
+    const name = 'Me  Ssy and Also Way Too Long'
     
     const result = normalizeItemName(name)
     // const functionalResult = functionalNormalizeItemName(name)
 
-    expect(result).toBe('messy')
+    expect(result).toBe('messyandal')
     // expect(result).toBe(functionalResult)
   })
   test('should return empty string for empty name', async () => {
