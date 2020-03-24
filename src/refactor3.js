@@ -1,18 +1,6 @@
-compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x)
+// compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x)
 
-const handleEmptyString = str => !str ? '' : str
-
-const removeWhitespaces = str => str.replace(/\s/g,'')
-const toLowerCase = str => str.toLowerCase()
-const truncate = str => str.substring(0, 10)
-
-const functionalNormalizeItemName = (name = '') =>
-  compose(
-    truncate,
-    toLowerCase,
-    removeWhitespaces,
-    handleEmptyString
-  )(name)
+const removeWhitespaces = str => str.replace(/\s/g, '')
 
 const normalizeItemName = (name = '') => {
   if (!name) {
@@ -24,6 +12,5 @@ const normalizeItemName = (name = '') => {
 }
 
 module.exports = {
-  normalizeItemName,
-  functionalNormalizeItemName
+  normalizeItemName
 }

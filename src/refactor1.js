@@ -1,15 +1,7 @@
-
-const functionalOrderItemsForChange = (origItems = [], updatedItems= []) => {
-  const addedItems = updatedItems.filter(itemCode => (!origItems.includes(itemCode)))
-  const deletedItems = origItems.filter(itemCode => (!updatedItems.includes(itemCode)))
-  const untouchedItems = updatedItems.filter(itemCode => (origItems.includes(itemCode)))
-  return deletedItems.concat(addedItems.concat(untouchedItems))
-}
-
-const orderItemsForChange = (origItems = [], updatedItems= []) => {
+const orderItemsForChange = (origItems = [], updatedItems = []) => {
   let addedItems = []
   let deletedItems = []
-  
+
   updatedItems.forEach(itemCode => {
     if (!origItems.includes(itemCode)) {
       addedItems.push(itemCode)
@@ -30,8 +22,7 @@ const orderItemsForChange = (origItems = [], updatedItems= []) => {
       }
     })
     orderedUpdatedItems = addedItems.concat(orderedUpdatedItems)
-    
-  } 
+  }
   if (deletedItems.length > 0) {
     // handle new added on top
     updatedItems.forEach(itemCode => {
@@ -41,14 +32,13 @@ const orderItemsForChange = (origItems = [], updatedItems= []) => {
     })
     orderedUpdatedItems = deletedItems.concat(orderedUpdatedItems)
 
-  if (deletedItems.length === 0 || addedItems.length === 0 )
-    // no new added or deleted items, just keep order as is
-    orderedUpdatedItems = updatedItems
+    if (deletedItems.length === 0 || addedItems.length === 0)
+      // no new added or deleted items, just keep order as is
+      orderedUpdatedItems = updatedItems
   }
   return [...new Set(orderedUpdatedItems)]
 }
 
 module.exports = {
-  orderItemsForChange,
-  functionalOrderItemsForChange
+  orderItemsForChange
 }
