@@ -5,38 +5,38 @@ describe('name normalizer test', async () => {
     const name = 'Me  Ssy'
     
     const result = normalizeItemName(name)
-    const result2 = functionalNormalizeItemName(name)
+    const resultFunctional = functionalNormalizeItemName(name)
 
     expect(result).toBe('messy')
-    expect(result2).toBe(result)
+    expect(resultFunctional).toBe(result)
   })
   test('should return empty string for empty name', async () => {
     const name = ''
     
     const result = normalizeItemName(name)
-    const result2 = functionalNormalizeItemName(name)
+    const resultFunctional = functionalNormalizeItemName(name)
 
     expect(result).toBe('')
-    expect(result2).toBe(result)
+    expect(resultFunctional).toBe(result)
   })
   test('should return empty string for null name', async () => {
     const name = null
     
     const result = normalizeItemName(name)
-    const result2 = functionalNormalizeItemName(name)
+    const resultFunctional = functionalNormalizeItemName(name)
 
     expect(result).toBe('')
-    expect(result2).toBe(result)
+    expect(resultFunctional).toBe(result)
   })
 
   test('should return empty string for undefined name', async () => {
     const name = undefined
     
     const result = normalizeItemName(name)
-    const result2 = functionalNormalizeItemName(name)
+    const resultFunctional = functionalNormalizeItemName(name)
 
     expect(result).toBe('')
-    expect(result2).toBe(result)
+    expect(resultFunctional).toBe(result)
   })
 })
 

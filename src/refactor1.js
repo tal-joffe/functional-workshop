@@ -1,12 +1,12 @@
 
-const cleanFunction = (origItems = [], updatedItems= []) => {
+const functionalOrderItemsForChange = (origItems = [], updatedItems= []) => {
   const addedItems = updatedItems.filter(itemCode => (!origItems.includes(itemCode)))
   const deletedItems = origItems.filter(itemCode => (!updatedItems.includes(itemCode)))
   const untouchedItems = updatedItems.filter(itemCode => (origItems.includes(itemCode)))
   return deletedItems.concat(addedItems.concat(untouchedItems))
 }
 
-const messyFunction = (origItems = [], updatedItems= []) => {
+const orderItemsForChange = (origItems = [], updatedItems= []) => {
   let addedItems = []
   let deletedItems = []
   
@@ -49,6 +49,6 @@ const messyFunction = (origItems = [], updatedItems= []) => {
 }
 
 module.exports = {
-  messyFunction,
-  cleanFunction
+  orderItemsForChange,
+  functionalOrderItemsForChange
 }
