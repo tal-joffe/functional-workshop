@@ -17,15 +17,17 @@ const validateNames = items => new Promise(function(resolve, reject) {
   }
 })
 
-const validatePrices = items => new Promise(function(resolve, reject) {
-  const invalid = items.filter(item => !(typeof item.price == 'number'))
+validate = (property, condition) => items => new Promise(function(resolve, reject) {
+  const invalid = items.filter(condition)
   if (invalid.length > 0){
-    reject({items: invalid, message: "invalid price"})
+    reject({items: invalid, message: `invalid ${property}`})
   }
   else{
     resolve({})
   }
 })
+
+const validatePrices = validate('price', item => !(typeof item.price == 'number'))
 
 const createErrorResponse = ({items, message}) => {
   return {

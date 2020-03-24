@@ -10,7 +10,7 @@ describe('pure functions test', async () => {
     expect(result).toEqual({invalidItems: [], validationError: "empty items list"})
     expect(result2).toEqual(result)
   })
-  test('should return invalid name validation error', async () => {
+  test('should return invalid price validation error', async () => {
     const items = [{name: 'valid', price:123}, {name: 'invalid123'}]
 
     const result = validateItems(items)
