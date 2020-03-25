@@ -1,3 +1,9 @@
+const functionalOrderItemsForChange = (origItems = [], updatedItems = []) => 
+  deletedItems(origItems, updatedItems)
+  .concat(addedItems(updatedItems, origItems))
+  .concat(unchangedItems(updatedItems, origItems))
+
+
 const orderItemsForChange = (origItems = [], updatedItems = []) => {
   let addedItems = []
   let deletedItems = []
@@ -40,5 +46,18 @@ const orderItemsForChange = (origItems = [], updatedItems = []) => {
 }
 
 module.exports = {
-  orderItemsForChange
+  orderItemsForChange,
+  functionalOrderItemsForChange
 }
+function unchangedItems(updatedItems, origItems) {
+  return updatedItems.filter(itemId => origItems.includes(itemId));
+}
+
+function deletedItems(origItems, updatedItems) {
+  return origItems.filter(itemId => !updatedItems.includes(itemCode));
+}
+
+function addedItems(updatedItems, origItems) {
+  return updatedItems.filter(itemId => !origItems.includes(itemCode));
+}
+

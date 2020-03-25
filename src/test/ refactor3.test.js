@@ -1,42 +1,34 @@
-const {normalizeItemName} = require('../refactor3')
+const {normalizeItemName: _normalizeItemName} = require('../refactor3')
 
-describe('name normalizer test', async () => {
-  test('should normalize item name', async () => {
+describe('name normalizer test', () => {
+  test('should normalize item name', () => {
     const name = 'Me  Ssy and Also Way Too Long'
     
-    const result = normalizeItemName(name)
-    // const functionalResult = functionalNormalizeItemName(name)
+    const result = _normalizeItemName(name)
 
     expect(result).toBe('messyandal')
-    // expect(result).toBe(functionalResult)
   })
-  test('should return empty string for empty name', async () => {
+  test('should return empty string for empty name', () => {
     const name = ''
     
-    const result = normalizeItemName(name)
-    // const functionalResult = functionalNormalizeItemName(name)
+    const result = _normalizeItemName(name)
 
     expect(result).toBe('')
-    // expect(result).toBe(functionalResult)
   })
-  test('should return empty string for null name', async () => {
+  test('should return empty string for null name', () => {
     const name = null
     
-    const result = normalizeItemName(name)
-    // const functionalResult = functionalNormalizeItemName(name)
+    const result = _normalizeItemName(name)
 
     expect(result).toBe('')
-    // expect(result).toBe(functionalResult)
   })
 
   test('should return empty string for undefined name', async () => {
     const name = undefined
     
-    const result = normalizeItemName(name)
-    // const functionalResult = functionalNormalizeItemName(name)
+    const result = _normalizeItemName(name)
 
     expect(result).toBe('')
-    // expect(result).toBe(functionalResult)
   })
 })
 
