@@ -4,7 +4,7 @@ const doValidation = (getInvalids, validationError) => items =>
     if (items.length === 0 || invalidItems.length > 0) {
       reject({ invalidItems, validationError })
     } else {
-      resolve({})
+      resolve(items)
     }
   })
 
@@ -31,8 +31,8 @@ const createErrorObject = error => error
 
 const functionalValidateItems = (items = []) =>
   validateItemList(items)
-    .then(() => validatePrices(items))
-    .then(() => validateNames(items))
+    .then(validatePrices)
+    .then(validateNames)
     .then(createSuccessObject)
     .catch(createErrorObject)
 
